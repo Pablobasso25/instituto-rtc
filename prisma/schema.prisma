@@ -20,7 +20,7 @@ model Alumno {
   email String @unique
   telefono String?
   fechaCreacion DateTime @default(now())
-  fechaActualizacion DateTime 
+  fechaActualizacion DateTime @updatedAt 
   cursos Curso[]
 }
 
