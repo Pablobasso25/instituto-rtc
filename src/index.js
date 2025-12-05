@@ -2,8 +2,10 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../src/generated/prisma/client.ts";
 import {
     actualizarEmailAlumno,
+  alumnosConCursos,
   crearAlumno,
   crearVariosAlumnos,
+  eliminarAlumno,
   obtenerAlumnos,
   ObtenerDatosAlumnos,
 } from "./services/alumno.service.js";
@@ -28,10 +30,14 @@ async function main() {
   //3- Crear cursos
   //   await crearCursos(prisma);
 //   await leerCursos(prisma);
-await actualizarEmailAlumno(prisma,'megumi.fushiguro@jujutsu.com','megumi.fushiguro@jjk.com')
+// await actualizarEmailAlumno(prisma,'megumi.fushiguro@jujutsu.com','megumi.fushiguro@jjk.com')
 
 //4- Inscribir alumno a cursos
-await inscribirAlumno(prisma)
+// await inscribirAlumno(prisma)
+// await alumnosConCursos(prisma)
+
+//5- eliminar alumnos
+await eliminarAlumno(prisma, 'mai.zenin@jujutsuschool.jp')
 }
 
 main()

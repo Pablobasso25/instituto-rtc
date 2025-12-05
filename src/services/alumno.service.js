@@ -78,3 +78,36 @@ export const actualizarEmailAlumno = async(prisma, emailAnterior, nuevoEmail) =>
     
 }
 
+export const alumnosConCursos = async(prisma) => {
+  const alumnosConCursos = await prisma.alumno.findMany({
+    where:{
+      cursos:{
+        some:{}
+      }
+    },
+    include:{
+      cursos:true
+    },
+    orderBy:{
+      id: 'asc'
+    }
+  })
+  console.log('🎓Alumnos inscritos en al menos un curso:');
+  console.dir(alumnosConCursos, {depth: null});
+}
+
+export const eliminarAlumno = async(prisma, email)=>{
+  try{
+    const alumnoEliminado = await prisma.alumno.delete({
+      where: {email}
+    })
+    console.log(`Alumno eliminado: ${alumnoEliminado.nombre}, ${alumnoEliminado.apellido}`);
+
+  }catch(error){
+      if(error.code === 'P2025'){
+            console.error('Error: No se encontró un alumno con el email proporcionado.');
+        }else{
+            console.error('Ocurrió un error al actualizar el email del alumno:', error);
+        }
+  }
+}
