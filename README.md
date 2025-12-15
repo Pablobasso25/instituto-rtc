@@ -10,7 +10,7 @@
 - [🛠️ Tecnologías](#-tecnologías)
 - [🤝 Contribución](#-contribución)
 - [📄 Licencia](#-licencia)
-- [📫 Contacto](#-contacto)
+- [💻 Autor](#-autor)
 
 ## ✨ Características
 
