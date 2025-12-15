@@ -9,8 +9,9 @@ import {
   obtenerAlumnos,
   ObtenerDatosAlumnos,
 } from "./services/alumno.service.js";
-import { crearCursos, leerCursos } from "./services/curso.service.js";
+import { crearCursos, datosCursoCompleto, leerCursos } from "./services/curso.service.js";
 import { inscribirAlumno } from "./services/instituto.service.js";
+import { agregarProfesor } from "./services/profesor.service.js";
 
 const connectionString = `${process.env.DATABASE_URL}`;
 
@@ -37,7 +38,11 @@ async function main() {
 // await alumnosConCursos(prisma)
 
 //5- eliminar alumnos
-await eliminarAlumno(prisma, 'mai.zenin@jujutsuschool.jp')
+// await eliminarAlumno(prisma, 'mai.zenin@jujutsuschool.jp')
+
+//6- Agregar profesor a un curso
+// await agregarProfesor(prisma, 'Nanami', 'Kento', 'nanami.kento@jujutsuschool.jp', 'Arquitectura REST')
+await datosCursoCompleto(prisma, 'Despliegue con Docker')
 }
 
 main()
