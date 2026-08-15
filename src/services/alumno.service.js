@@ -28,7 +28,7 @@ export const actualizarAlumnoService = async (id, datosAlumno) => {
   return alumnoActualizado;
 };
 
-export const eliminarAlumnoPorIdService = async (id) => {
+export const eliminarAlumnoService = async (id) => {
   const alumnoEliminado = await prisma.alumno.delete({
     where: { id: parseInt(id) },
   });
