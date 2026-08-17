@@ -59,4 +59,5 @@ export const eliminarAlumnoPorId = async (req, res) => {
       .status(404)
       .json({ error: "No se encontró el alumno con el ID proporcionado" });
   }
+  return res.status(500).json({ error: "Error interno del servidor" });
 };

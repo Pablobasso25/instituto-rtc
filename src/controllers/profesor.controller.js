@@ -51,7 +51,7 @@ export const actualizarProfesor = async (req, res) => {
         .status(400)
         .json({ error: "El email ya se encuentra en uso por otro profesor" });
     }
-    return res.status(400).json({ error: error.message });
+    return res.status(500).json({ error: "Error interno del servidor" });
   }
 };
 
@@ -68,6 +68,6 @@ export const eliminarProfesorPorId = async (req, res) => {
         .status(404)
         .json({ error: "No se encontró el profesor con el ID proporcionado" });
     }
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: "Error interno del servidor" });
   }
 };

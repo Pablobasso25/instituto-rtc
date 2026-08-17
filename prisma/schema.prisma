@@ -19,6 +19,7 @@ model Alumno {
   apellido           String
   email              String   @unique
   telefono           String?
+  edad               Int?
   fechaCreacion      DateTime @default(now())
   fechaActualizacion DateTime @updatedAt
   cursos             Curso[]
@@ -27,6 +28,7 @@ model Alumno {
 model Curso {
   id         Int       @id @default(autoincrement())
   nombre     String    @unique
+  cupo       Int       @default(20)
   alumnos    Alumno[]
   profesor   Profesor? @relation(fields: [profesorId], references: [id])
   profesorId Int?
